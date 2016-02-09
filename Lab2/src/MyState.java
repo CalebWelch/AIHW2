@@ -1,6 +1,6 @@
 import java.util.Comparator;
 import java.util.TreeSet;
-public class MyState {
+public class MyState implements Comparable<MyState> {
    public double cost;
    MyState parent;
    public int x;
@@ -23,13 +23,12 @@ public class MyState {
 		   return false;
 	   
    }
-}
-class MyNameComp implements Comparator<MyState>{
-	public int compare(MyState e1, MyState e2) {
-		if(e1.y < e2.y) return -1;
-		else if(e1.y > e2.y) return 1;
-		else if(e1.x < e2.x) return -1;
-		else if(e1.x > e2.x) return 1;
+@Override
+	public int compareTo(MyState e) {
+		if(this.y < e.y) return -1;
+		else if(this.y > e.y) return 1;
+		else if(this.x < e.x) return -1;
+		else if(this.x > e.x) return 1;
 		else return 0;
 	}
 }  
