@@ -17,11 +17,17 @@ public class MyState implements Comparable<MyState> {
 	   this.y = y;
    }
    public boolean isEqual(MyState goal){
-	   if(this.equals(goal))
+	   if(this.x == goal.x && this.y == goal.y)
 		   return true;
 	   else
 		   return false;
 	   
+   }
+   public void setEqual(MyState s){
+	   this.x = s.x;
+	   this.y = s.y;
+	   this.parent = s.parent;
+	   this.cost = s.cost;
    }
 @Override
 	public int compareTo(MyState e) {
